@@ -1,2 +1,2 @@
-fanuc_kinematics:fanuc_moveit:fanuc_planning:moveit_dp_redundancy_resolution:moveit_dp_redundancy_resolution_msgs
+fanuc_kinematics:fanuc_moveit:fanuc_planning:moveit_dp_redundancy_resolution:moveit_dp_redundancy_resolution_msgs:pub_sub
 -DCATKIN_DEVEL_PREFIX=/home/paolo/ComputerSync/Università/Robotica/robotica_ws/devel -DCMAKE_INSTALL_PREFIX=/home/paolo/ComputerSync/Università/Robotica/robotica_ws/install -G Unix Makefiles

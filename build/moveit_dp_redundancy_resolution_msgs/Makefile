@@ -68,17 +68,15 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -92,15 +90,28 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
-.PHONY : list_install_components/fast
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -123,17 +134,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,169 +168,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+trajectory_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_eus
+.PHONY : trajectory_msgs_generate_messages_py
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+trajectory_msgs_generate_messages_py/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+shape_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : std_msgs_generate_messages_nodejs
+.PHONY : shape_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-octomap_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : octomap_msgs_generate_messages_lisp
-
-# fast build rule for target.
-octomap_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build
-.PHONY : octomap_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-moveit_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
-
-.PHONY : moveit_msgs_generate_messages_eus
-
-# fast build rule for target.
-moveit_msgs_generate_messages_eus/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build
-.PHONY : moveit_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-object_recognition_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
-
-.PHONY : object_recognition_msgs_generate_messages_py
-
-# fast build rule for target.
-object_recognition_msgs_generate_messages_py/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build
-.PHONY : object_recognition_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/build
-.PHONY : moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs_geneus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule
-
-.PHONY : moveit_dp_redundancy_resolution_msgs_geneus
-
-# fast build rule for target.
-moveit_dp_redundancy_resolution_msgs_geneus/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/build
-.PHONY : moveit_dp_redundancy_resolution_msgs_geneus/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+shape_msgs_generate_messages_nodejs/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build
+.PHONY : shape_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
@@ -348,19 +213,34 @@ trajectory_msgs_generate_messages_cpp/fast:
 .PHONY : trajectory_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_cpp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+actionlib_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : std_msgs_generate_messages_cpp
+.PHONY : actionlib_msgs_generate_messages_lisp
 
 # fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
+actionlib_msgs_generate_messages_lisp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+.PHONY : actionlib_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_nodejs/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+.PHONY : actionlib_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
@@ -376,6 +256,66 @@ geometry_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMake
 geometry_msgs_generate_messages_lisp/fast:
 	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+octomap_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : octomap_msgs_generate_messages_lisp
+
+# fast build rule for target.
+octomap_msgs_generate_messages_lisp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/octomap_msgs_generate_messages_lisp.dir/build
+.PHONY : octomap_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+moveit_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : moveit_msgs_generate_messages_lisp
+
+# fast build rule for target.
+moveit_msgs_generate_messages_lisp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/build
+.PHONY : moveit_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_cpp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : shape_msgs_generate_messages_cpp
+
+# fast build rule for target.
+shape_msgs_generate_messages_cpp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build
+.PHONY : shape_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_nodejs.dir/rule:
@@ -408,19 +348,19 @@ moveit_msgs_generate_messages_py/fast:
 .PHONY : moveit_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs_genpy: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule
+object_recognition_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : moveit_dp_redundancy_resolution_msgs_genpy
+.PHONY : object_recognition_msgs_generate_messages_lisp
 
 # fast build rule for target.
-moveit_dp_redundancy_resolution_msgs_genpy/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/build
-.PHONY : moveit_dp_redundancy_resolution_msgs_genpy/fast
+object_recognition_msgs_generate_messages_lisp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/build
+.PHONY : object_recognition_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
@@ -438,79 +378,34 @@ geometry_msgs_generate_messages_cpp/fast:
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule
 
 # Convenience name for target.
-object_recognition_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/rule
+moveit_dp_redundancy_resolution_msgs_genpy: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/rule
 
-.PHONY : object_recognition_msgs_generate_messages_lisp
+.PHONY : moveit_dp_redundancy_resolution_msgs_genpy
 
 # fast build rule for target.
-object_recognition_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_lisp.dir/build
-.PHONY : object_recognition_msgs_generate_messages_lisp/fast
+moveit_dp_redundancy_resolution_msgs_genpy/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_genpy.dir/build
+.PHONY : moveit_dp_redundancy_resolution_msgs_genpy/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_cpp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+trajectory_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_cpp
+.PHONY : trajectory_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-moveit_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : moveit_msgs_generate_messages_lisp
-
-# fast build rule for target.
-moveit_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_lisp.dir/build
-.PHONY : moveit_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
+trajectory_msgs_generate_messages_nodejs/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
@@ -573,6 +468,36 @@ geometry_msgs_generate_messages_nodejs/fast:
 .PHONY : geometry_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+moveit_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/rule
+
+.PHONY : moveit_msgs_generate_messages_eus
+
+# fast build rule for target.
+moveit_msgs_generate_messages_eus/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_msgs_generate_messages_eus.dir/build
+.PHONY : moveit_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
 	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
 .PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
@@ -586,66 +511,6 @@ actionlib_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMake
 actionlib_msgs_generate_messages_eus/fast:
 	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
 .PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_lisp.dir/rule:
@@ -663,94 +528,109 @@ shape_msgs_generate_messages_lisp/fast:
 .PHONY : shape_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-trajectory_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+trajectory_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : trajectory_msgs_generate_messages_py
+.PHONY : trajectory_msgs_generate_messages_lisp
 
 # fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
+trajectory_msgs_generate_messages_lisp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+sensor_msgs_generate_messages_cpp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : sensor_msgs_generate_messages_nodejs
+.PHONY : sensor_msgs_generate_messages_cpp
 
 # fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
+sensor_msgs_generate_messages_cpp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+.PHONY : sensor_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory: moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule
+object_recognition_msgs_generate_messages_py: moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/rule
 
-.PHONY : _moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory
+.PHONY : object_recognition_msgs_generate_messages_py
 
 # fast build rule for target.
-_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/build
-.PHONY : _moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory/fast
+object_recognition_msgs_generate_messages_py/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/object_recognition_msgs_generate_messages_py.dir/build
+.PHONY : object_recognition_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-shape_msgs_generate_messages_cpp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/rule
+moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : shape_msgs_generate_messages_cpp
+.PHONY : moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-shape_msgs_generate_messages_cpp/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_cpp.dir/build
-.PHONY : shape_msgs_generate_messages_cpp/fast
+moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs.dir/build
+.PHONY : moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule
 
 # Convenience name for target.
-shape_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+moveit_dp_redundancy_resolution_msgs_geneus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/rule
 
-.PHONY : shape_msgs_generate_messages_eus
+.PHONY : moveit_dp_redundancy_resolution_msgs_geneus
 
 # fast build rule for target.
-shape_msgs_generate_messages_eus/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/build
-.PHONY : shape_msgs_generate_messages_eus/fast
+moveit_dp_redundancy_resolution_msgs_geneus/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_geneus.dir/build
+.PHONY : moveit_dp_redundancy_resolution_msgs_geneus/fast
 
 # Convenience name for target.
-moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
-.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-shape_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/rule
+sensor_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
 
-.PHONY : shape_msgs_generate_messages_nodejs
+.PHONY : sensor_msgs_generate_messages_eus
 
 # fast build rule for target.
-shape_msgs_generate_messages_nodejs/fast:
-	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_nodejs.dir/build
-.PHONY : shape_msgs_generate_messages_nodejs/fast
+sensor_msgs_generate_messages_eus/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+.PHONY : sensor_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_py.dir/rule:
@@ -1037,6 +917,51 @@ moveit_dp_redundancy_resolution_msgs_gennodejs/fast:
 	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_gennodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/moveit_dp_redundancy_resolution_msgs_gennodejs.dir/build
 .PHONY : moveit_dp_redundancy_resolution_msgs_gennodejs/fast
 
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule
+
+# Convenience name for target.
+_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory: moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/rule
+
+.PHONY : _moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory
+
+# fast build rule for target.
+_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/_moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory.dir/build
+.PHONY : _moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_nodejs: moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+.PHONY : moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+shape_msgs_generate_messages_eus: moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/rule
+
+.PHONY : shape_msgs_generate_messages_eus
+
+# fast build rule for target.
+shape_msgs_generate_messages_eus/fast:
+	cd /home/paolo/ComputerSync/Università/Robotica/robotica_ws/build && $(MAKE) -f moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/build.make moveit_dp_redundancy_resolution_msgs/CMakeFiles/shape_msgs_generate_messages_eus.dir/build
+.PHONY : shape_msgs_generate_messages_eus/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1044,50 +969,38 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... install"
+	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... list_install_components"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... octomap_msgs_generate_messages_lisp"
-	@echo "... moveit_msgs_generate_messages_eus"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... object_recognition_msgs_generate_messages_py"
-	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs"
-	@echo "... moveit_dp_redundancy_resolution_msgs_geneus"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... shape_msgs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... octomap_msgs_generate_messages_lisp"
+	@echo "... moveit_msgs_generate_messages_lisp"
+	@echo "... shape_msgs_generate_messages_cpp"
 	@echo "... moveit_msgs_generate_messages_nodejs"
 	@echo "... moveit_msgs_generate_messages_py"
-	@echo "... moveit_dp_redundancy_resolution_msgs_genpy"
-	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... object_recognition_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... moveit_msgs_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... moveit_dp_redundancy_resolution_msgs_genpy"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... octomap_msgs_generate_messages_eus"
 	@echo "... object_recognition_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... moveit_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... shape_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... edit_cache"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... _moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory"
-	@echo "... shape_msgs_generate_messages_cpp"
-	@echo "... rebuild_cache"
-	@echo "... shape_msgs_generate_messages_eus"
-	@echo "... shape_msgs_generate_messages_nodejs"
+	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_cpp"
+	@echo "... object_recognition_msgs_generate_messages_py"
+	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages_nodejs"
+	@echo "... moveit_dp_redundancy_resolution_msgs_geneus"
+	@echo "... sensor_msgs_generate_messages_eus"
+	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... shape_msgs_generate_messages_py"
 	@echo "... object_recognition_msgs_generate_messages_eus"
 	@echo "... object_recognition_msgs_generate_messages_nodejs"
@@ -1099,15 +1012,22 @@ help:
 	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages_cpp"
+	@echo "... install"
 	@echo "... moveit_dp_redundancy_resolution_msgs_gencpp"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages_py"
 	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages_eus"
+	@echo "... install/local"
 	@echo "... moveit_dp_redundancy_resolution_msgs_generate_messages_lisp"
 	@echo "... moveit_dp_redundancy_resolution_msgs_genlisp"
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... moveit_dp_redundancy_resolution_msgs_gennodejs"
 	@echo "... test"
+	@echo "... _moveit_dp_redundancy_resolution_msgs_generate_messages_check_deps_GetOptimizedJointsTrajectory"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... edit_cache"
+	@echo "... shape_msgs_generate_messages_eus"
+	@echo "... rebuild_cache"
 .PHONY : help
 
 

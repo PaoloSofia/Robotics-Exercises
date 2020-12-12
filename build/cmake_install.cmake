@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/paolo/ComputerSync/Università/Robotica/robotica_ws/build/gtest/cmake_install.cmake")
+  include("/home/paolo/ComputerSync/Università/Robotica/robotica_ws/build/pub_sub/cmake_install.cmake")
   include("/home/paolo/ComputerSync/Università/Robotica/robotica_ws/build/moveit_dp_redundancy_resolution_msgs/cmake_install.cmake")
   include("/home/paolo/ComputerSync/Università/Robotica/robotica_ws/build/fanuc_kinematics/cmake_install.cmake")
   include("/home/paolo/ComputerSync/Università/Robotica/robotica_ws/build/moveit_dp_redundancy_resolution/cmake_install.cmake")
