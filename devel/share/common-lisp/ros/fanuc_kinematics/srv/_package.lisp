@@ -1,0 +1,10 @@
+(cl:defpackage fanuc_kinematics-srv
+  (:use )
+  (:export
+   "FORWARDKINEMATICS"
+   "<FORWARDKINEMATICS-REQUEST>"
+   "FORWARDKINEMATICS-REQUEST"
+   "<FORWARDKINEMATICS-RESPONSE>"
+   "FORWARDKINEMATICS-RESPONSE"
+  ))
+

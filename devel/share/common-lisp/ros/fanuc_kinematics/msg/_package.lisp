@@ -1,0 +1,33 @@
+(cl:defpackage fanuc_kinematics-msg
+  (:use )
+  (:export
+   "<IKACTION>"
+   "IKACTION"
+   "<IKACTION>"
+   "IKACTION"
+   "<IKACTIONFEEDBACK>"
+   "IKACTIONFEEDBACK"
+   "<IKACTIONFEEDBACK>"
+   "IKACTIONFEEDBACK"
+   "<IKACTIONGOAL>"
+   "IKACTIONGOAL"
+   "<IKACTIONGOAL>"
+   "IKACTIONGOAL"
+   "<IKACTIONRESULT>"
+   "IKACTIONRESULT"
+   "<IKACTIONRESULT>"
+   "IKACTIONRESULT"
+   "<IKFEEDBACK>"
+   "IKFEEDBACK"
+   "<IKFEEDBACK>"
+   "IKFEEDBACK"
+   "<IKGOAL>"
+   "IKGOAL"
+   "<IKGOAL>"
+   "IKGOAL"
+   "<IKRESULT>"
+   "IKRESULT"
+   "<IKRESULT>"
+   "IKRESULT"
+  ))
+

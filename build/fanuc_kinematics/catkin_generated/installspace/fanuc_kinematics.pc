@@ -1,0 +1,8 @@
+prefix=/home/paolo/ComputerSync/Università/Robotica/robotica_ws/install
+
+Name: fanuc_kinematics
+Description: Description of fanuc_kinematics
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime moveit_core tf2_geometry_msgs actionlib_msgs

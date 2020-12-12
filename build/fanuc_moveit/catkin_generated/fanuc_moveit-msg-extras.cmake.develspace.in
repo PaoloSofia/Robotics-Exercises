@@ -1,0 +1,2 @@
+set(fanuc_moveit_MESSAGE_FILES "/home/paolo/ComputerSync/Università/Robotica/robotica_ws/src/fanuc_moveit/msg/AxisAngle.msg;/home/paolo/ComputerSync/Università/Robotica/robotica_ws/src/fanuc_moveit/msg/TransformationMatrix.msg;/home/paolo/ComputerSync/Università/Robotica/robotica_ws/src/fanuc_moveit/msg/Transformations.msg;/home/paolo/ComputerSync/Università/Robotica/robotica_ws/src/fanuc_moveit/msg/TransformationsArray.msg")
+set(fanuc_moveit_SERVICE_FILES "")

@@ -1,0 +1,8 @@
+prefix=/home/paolo/ComputerSync/Università/Robotica/robotica_ws/install
+
+Name: moveit_dp_redundancy_resolution
+Description: Description of moveit_dp_redundancy_resolution
+Version: 0.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lworkspace_trajectory -ldp_redundancy_resolution_capability
+Requires: moveit_dp_redundancy_resolution_msgs

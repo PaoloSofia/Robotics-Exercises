@@ -1,0 +1,2 @@
+set(moveit_dp_redundancy_resolution_msgs_MESSAGE_FILES "msg/WorkspaceTrajectory.msg")
+set(moveit_dp_redundancy_resolution_msgs_SERVICE_FILES "srv/GetOptimizedJointsTrajectory.srv")

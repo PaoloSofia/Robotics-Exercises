@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/paolo/ComputerSync/Università/Robotica/robotica_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "files.associations": {
+        "bitset": "cpp",
+        "string_view": "cpp"
+    }
+}

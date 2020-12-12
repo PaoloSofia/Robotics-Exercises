@@ -1,0 +1,2 @@
+set(moveit_dp_redundancy_resolution_msgs_MESSAGE_FILES "/home/paolo/ComputerSync/Università/Robotica/robotica_ws/src/moveit_dp_redundancy_resolution_msgs/msg/WorkspaceTrajectory.msg")
+set(moveit_dp_redundancy_resolution_msgs_SERVICE_FILES "/home/paolo/ComputerSync/Università/Robotica/robotica_ws/src/moveit_dp_redundancy_resolution_msgs/srv/GetOptimizedJointsTrajectory.srv")

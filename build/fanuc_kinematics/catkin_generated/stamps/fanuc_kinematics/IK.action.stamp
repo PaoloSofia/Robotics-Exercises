@@ -1,0 +1,8 @@
+#goal definition. The pose for which we wantto find the inverse kinematics solutions
+geometry_msgs/Pose pose
+---
+#Result.The resultant vector of double messages that contains the joint values for the ik problem
+moveit_msgs/RobotState[] solutions
+---
+#feedback. The single joint angles found at each step of the algorithm
+moveit_msgs/RobotState solution
